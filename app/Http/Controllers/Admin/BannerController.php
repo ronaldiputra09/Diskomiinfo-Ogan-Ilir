@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Download;
+use App\Banner;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
-class DownloadController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class DownloadController extends Controller
      */
     public function index()
     {
-        $download = Download::paginate(5);
-        return view('admin.download.index', compact('download'));
+        $banner = Banner::paginate(5);
+        return view('admin.banner.index', compact('banner'));
     }
 
     /**
@@ -27,7 +27,7 @@ class DownloadController extends Controller
      */
     public function create()
     {
-        return view('admin.download.create');
+        return view('admin.banner.create');
     }
 
     /**
@@ -39,29 +39,18 @@ class DownloadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul' => 'required',
-            'no_katalog' => 'required',
-            'no_publikasi' => 'required',
-            'issn' => 'required',
-            'tgl_publikasi' => 'required',
-            'no_publikasi' => 'required',
-            'file' => 'required|mimes:pdf,docx,doc,xlsx,xls',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'banner' => 'required|image|mimes:jpg,jpeg,png',
         ]);
-        $file = $request->file;
-        $new_file = time() . $file->getClientOriginalName();
+        $banner = $request->banner;
+        $new_banner = time() . $banner->getClientOriginalName();
 
-        $download = Download::create([
-            'judul' => $request->judul,
-            'no_katalog' => $request->no_katalog,
-            'no_publikasi' => $request->no_publikasi,
-            'issn' => $request->issn,
-            'tgl_publikasi' => $request->tgl_publikasi,
-            'file' => 'public/uploads/download/' . $new_file,
-            'keterangan' => $request->keterangan
+        $galeri = Banner::create([
+            'keterangan' => $request->keterangan,
+            'banner' => 'public/uploads/banner/' . $new_banner,
         ]);
-        $file->move('public/uploads/download', $new_file);
-        return redirect('admin/download')->with('sukses', 'File berhasil ditambahkan..');
+        $banner->move('public/uploads/banner/', $new_banner);
+        return redirect('admin/banner')->with('sukses', 'Banner berhasil ditambahkan..');
     }
 
     /**
@@ -106,9 +95,9 @@ class DownloadController extends Controller
      */
     public function destroy($id)
     {
-        $download = Download::findOrFail($id);
-        File::delete($download->file);
-        $download->delete();
-        return redirect()->back()->with('sukses', 'File berhasil dihapus..');
+        $banner = Banner::findOrFail($id);
+        File::delete($banner->banner);
+        $banner->delete();
+        return redirect()->back()->with('sukses', 'Banner berhasil dihapus..');
     }
 }

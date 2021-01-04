@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDownloadsTable extends Migration
+class CreateBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateDownloadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('downloads', function (Blueprint $table) {
+        Schema::create('banners', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('judul');
-            $table->string('no_katalog');
-            $table->string('no_publikasi');
-            $table->string('issn');
-            $table->string('tgl_publikasi');
+            $table->string('banner');
             $table->string('keterangan');
-            $table->text('file');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateDownloadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('downloads');
+        Schema::dropIfExists('banners');
     }
 }

@@ -45,4 +45,5 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/admin/user', 'Admin\UserController');
     Route::resource('/admin/setting', 'Admin\SettingController');
     Route::resource('/admin/download', 'Admin\DownloadController');
+    Route::resource('/admin/banner', 'Admin\BannerController');
 });

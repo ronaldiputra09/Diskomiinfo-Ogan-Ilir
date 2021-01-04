@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Agenda;
+use App\Banner;
 use App\Http\Controllers\Controller;
 use App\Sambutan;
 use App\Sejarah;
@@ -35,6 +36,7 @@ class HomeController extends Controller
         $agenda2 = Agenda::all();
         $sambutan = Sambutan::first();
         $visimisi = Visimisi::first();
-        return view('frontend.home', compact('setting', 'sejarah', 'agenda', 'sambutan', 'visimisi'));
+        $banner = Banner::all();
+        return view('frontend.home', compact('setting', 'sejarah', 'agenda', 'sambutan', 'visimisi', 'banner'));
     }
 }

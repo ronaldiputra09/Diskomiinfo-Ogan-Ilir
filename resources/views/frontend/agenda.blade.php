@@ -7,9 +7,6 @@
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-                    <path
-                        d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z"
-                        id="Path"></path>
                 </g>
             </g>
         </svg>
@@ -31,35 +28,24 @@
 </section>
 @endsection
 @section('main')
-<!-- ======= Testimonials Section ======= -->
-<section class="section border-top border-bottom">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-md-4">
-                <h2 class="section-heading">Agenda</h2>
-            </div>
-        </div>
-        <div class="row justify-content-center text-center">
-            <div class="col-md-7">
-                <div class="owl-carousel testimonial-carousel">
-                    @foreach ($agenda as $a)
-                    <div class="review text-center">
-                        <h3>{{ $a->nama_kegiatan }}</h3>
-                        <blockquote>
-                            <p>{{ $a->tempat }}</p>
-                        </blockquote>
-
-                        <p class="review-user">
-                            <span class="d-block">
-                                <span class="text-black">{{ $a->waktu }}</span> &mdash; {{ $a->pengirim }}
-                            </span>
-                        </p>
-
-                    </div>
-                    @endforeach
+<br>
+<div class="container">
+    <div class="row align-items-stretch">
+        @foreach ($agenda as $a)
+        <div class="col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="pricing h-100 text-center">
+                <span>&nbsp;</span>
+                <h3>{{ $a->nama_kegiatan }}</h3>
+                <ul class="list-unstyled">
+                    <li>{{ $a->tempat }}</li>
+                    <li>{{ $a->pengirim }}</li>
+                </ul>
+                <div class="price-cta">
+                    <strong class="price">{{ $a->waktu }}</strong>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-</section><!-- End Testimonials Section -->
+</div>
 @endsection

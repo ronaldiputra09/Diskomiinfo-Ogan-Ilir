@@ -7,9 +7,6 @@
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-                    <path
-                        d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z"
-                        id="Path"></path>
                 </g>
             </g>
         </svg>
@@ -21,7 +18,7 @@
             <div class="col-12">
                 <div class="row justify-content-center">
                     <div class="col-md-7 text-center hero-text">
-                        <h1 data-aos="fade-up" data-aos-delay="">Download</h1>
+                        <h1 data-aos="fade-up" data-aos-delay="">Download File</h1>
                     </div>
                 </div>
             </div>
@@ -31,34 +28,33 @@
 </section>
 @endsection
 @section('main')
-<section class="section">
-    <div class="container">
-        <div class="card">
-            <div class="card-body">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Keterangan</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($download as $d => $hasil)
-                        <tr>
-                            <th scope="row">{{ $d + $download->firstitem() }}</th>
-                            <td>{{ $hasil->keterangan }}</td>
-                            <td scope="row">
-                                <a href="{{ route('download.ambil', $hasil->id) }}"
-                                    class="btn btn-sm btn-primary">Download</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                {{ $download->links() }}
+<br>
+<div class="container">
+    <div class="row align-items-stretch">
+        @foreach ($download as $d)
+        <div class="col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
+            <div class="pricing h-100 text-center">
+                <span>&nbsp;</span>
+                <div class="feature-1 text-center">
+                    <div class="wrap-icon icon-1">
+                        <span class="icon la la-file"></span>
+                    </div>
+                </div>
+                <h3>{{ $d->judul }}</h3>
+                <ul class="list-unstyled">
+                    <li><b>No Katalog :</b> {{ $d->no_katalog }}</li>
+                    <li><b>No Publikasi :</b> {{ $d->no_publikasi }}</li>
+                    <li><b>ISSN / ISBN :</b> {{ $d->issn }}</li>
+                    <li><b>Tgl Publikasi :</b> {{ $d->tgl_publikasi }}</li>
+                    <li>{{ Str::limit($d->keterangan, 100, '...') }}</li>
+                </ul>
+                <div class="price-cta">
+                    <p><a href="{{ route('download.ambil', $d->id) }}" class="btn btn-primary">Download</a></p>
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
-</section>
+    {{ $download->links() }}
+</div>
 @endsection

@@ -59,9 +59,14 @@
                 <a href="{{ route('user.index') }}" class="nav-link"><i
                         class="fas fa-user-cog"></i><span>Users</span></a>
             </li>
-            <li class="dropdown {{ (request()->segment(2) == 'setting') ? 'active' : '' }}">
-                <a href="{{ route('setting.index') }}" class="nav-link"><i
-                        class="fas fa-cog"></i><span>Settings</span></a>
+            <li
+                class="dropdown {{ (request()->segment(2) == 'setting') ? 'active' : '' }} {{ (request()->segment(2) == 'banner') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i>
+                    <span>Settings</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="{{ route('setting.index') }}">Settings</a></li>
+                    <li><a class="nav-link" href="{{ route('banner.index') }}">Banner</a></li>
+                </ul>
             </li>
         </ul>
     </aside>

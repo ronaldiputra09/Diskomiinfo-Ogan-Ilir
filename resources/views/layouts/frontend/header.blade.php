@@ -44,7 +44,8 @@
                         <li><a href="{{ route('blog') }}"
                                 class="nav-link {{ (request()->segment(1) == 'blog') ? 'active' : '' }}">Blog</a></li>
                         <li><a href="{{ route('kontakfront.index') }}"
-                                class="nav-link {{ (request()->segment(1) == 'home') ? 'active' : '' }}">Kontak</a></li>
+                                class="nav-link {{ (request()->segment(1) == 'kontakfront') ? 'active' : '' }}">Kontak</a>
+                        </li>
                     </ul>
                 </nav>
             </div>

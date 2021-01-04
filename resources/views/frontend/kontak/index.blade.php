@@ -7,9 +7,6 @@
             xmlns:xlink="http://www.w3.org/1999/xlink">
             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                 <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-                    <path
-                        d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,667 L1017.15166,667 L0,667 L0,439.134243 Z"
-                        id="Path"></path>
                 </g>
             </g>
         </svg>
@@ -31,67 +28,66 @@
 </section>
 @endsection
 @section('main')
-<section class="section">
-    <div class="container">
-        <div class="row mb-5 align-items-end">
-            <div class="col-md-6" data-aos="fade-up">
+<div class="container">
+    <br>
+    <div class="row mb-5 align-items-end">
+        <div class="col-md-6" data-aos="fade-up">
 
-                <h2>Contact Form</h2>
-            </div>
-
+            <h2>Contact Form</h2>
         </div>
 
-        <div class="row">
-            <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
-                <ul class="list-unstyled">
-                    <li class="mb-3">
-                        <strong class="d-block mb-1">Alamat</strong>
-                        <span>Jl. Lintas Sumatera, Indralaya Raya, Kec. Indralaya, Kabupaten Ogan Ilir, Sumatera Selatan
-                            30862</span>
-                    </li>
-                    <li class="mb-3">
-                        <strong class="d-block mb-1">Telepon</strong>
-                        <span>(0711) 7583058</span>
-                    </li>
-                </ul>
-            </div>
+    </div>
 
-            <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
-                <form action="{{ route('kontakfront.store') }}" method="post" role="form" class="php-email-form">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-6 form-group">
-                            <label for="nama">Nama lengkap</label>
-                            <input type="text" name="nama" class="form-control" id="nama" data-rule="minlen:4"
-                                data-msg="Silahkan masukan nama lengkap." />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label for="name">Email</label>
-                            <input type="email" class="form-control" name="email" id="email" data-rule="email"
-                                data-msg="Silahkan masukan email." />
-                            <div class="validate"></div>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <label for="name">Pesan</label>
-                            <textarea class="form-control" name="pesan" cols="30" rows="10" data-rule="required"
-                                data-msg="Silahkan masukan pesan."></textarea>
-                            <div class="validate"></div>
-                        </div>
+    <div class="row">
+        <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
+            <ul class="list-unstyled">
+                <li class="mb-3">
+                    <strong class="d-block mb-1">Alamat</strong>
+                    <span>Jl. Lintas Sumatera, Indralaya Raya, Kec. Indralaya, Kabupaten Ogan Ilir, Sumatera Selatan
+                        30862</span>
+                </li>
+                <li class="mb-3">
+                    <strong class="d-block mb-1">Telepon</strong>
+                    <span>(0711) 7583058</span>
+                </li>
+            </ul>
+        </div>
 
-                        <div class="col-md-6 form-group">
-                            <input type="submit" class="btn btn-primary d-block w-100" value="Send Message">
-                        </div>
-
-                        <div class="col-md-12 mb-3">
-                            <div class="loading alert alert-success">Berhasil, mengirimkan pesan</div>
-                        </div>
+        <div class="col-md-6 mb-5 mb-md-0" data-aos="fade-up">
+            <form action="{{ route('kontakfront.store') }}" method="post" role="form" class="php-email-form">
+                @csrf
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="nama">Nama lengkap</label>
+                        <input type="text" name="nama" class="form-control" id="nama" data-rule="minlen:4"
+                            data-msg="Silahkan masukan nama lengkap." />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="name">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" data-rule="email"
+                            data-msg="Silahkan masukan email." />
+                        <div class="validate"></div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label for="name">Pesan</label>
+                        <textarea class="form-control" name="pesan" cols="30" rows="10" data-rule="required"
+                            data-msg="Silahkan masukan pesan."></textarea>
+                        <div class="validate"></div>
                     </div>
 
-                </form>
-            </div>
+                    <div class="col-md-6 form-group">
+                        <input type="submit" class="btn btn-primary d-block w-100" value="Send Message">
+                    </div>
 
+                    <div class="col-md-12 mb-3">
+                        <div class="loading alert alert-success">Berhasil, mengirimkan pesan</div>
+                    </div>
+                </div>
+
+            </form>
         </div>
+
     </div>
-</section>
+</div>
 @endsection
